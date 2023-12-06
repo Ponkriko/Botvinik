@@ -16,7 +16,7 @@ class TableroAjedez:
         print()
 
     def elegir_pieza(self, jugador):
-        while True
+        while True:
             try:
                 fila = int(input(f'Jugador{jugador}, elige la fila (1-8): ')) - 1
                 columna = int(input(f'Jugador {jugador}, elige la columna (1-8):')) - 1
