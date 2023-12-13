@@ -27,7 +27,7 @@ class TableroAjedrez:
                 columna = int(input(f'Jugador {jugador}, elige la columna (a-h): '))
                 columna = ord(columna_letra) -  ord('a')
 
-                if 0 <= fila < 8 and 0 <= columna < 8:
+#aqui esta el error                if 0 <= fila < 8 and 0 <= columna < 8:
                     pieza = self.tablero[fila][columna]
                     if pieza != ' ':
                         return pieza, fila, columna
