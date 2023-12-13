@@ -12,37 +12,37 @@ class TableroAjedrez:
         ]
 
     def mostrar_tablero(self):
-        print(" a b c d e f g h")
-        print(" +---------------")
+        print("   a b c d e f g h")
+        print(" +-----------------")
         for fila_num, fila in enumerate(self.tablero[::-1], start=1):
             print(f"{fila_num}| {' '.join(fila)} | {fila_num}")
-        print(" +----------------")
-        print(" a b c d e f g h")
+        print(" +-----------------")
+        print("   a b c d e f g h")
         print()
 
     def elegir_pieza(self, jugador):
         while True:
             try:
                 fila = int(input(f'Jugador {jugador}, elige la fila (1-8): ')) - 1
-                columna = int(input(f'Jugador {jugador}, elige la columna (a-h): '))
-                columna = ord(columna_letra) -  ord('a')
+                columna_letra = input(f'Jugador {jugador}, elige la columna (a-h): ')
+                columna = ord(columna_letra) - ord('a')
 
-#aqui esta el error                if 0 <= fila < 8 and 0 <= columna < 8:
+                if 0 <= fila < 8 and 0 <= columna < 8:
                     pieza = self.tablero[fila][columna]
                     if pieza != ' ':
                         return pieza, fila, columna
                     else:
                         print('No hay una pieza en esa posición. Intenta de nuevo.')
                 else:
-                    print('Por favor, elige una posición válida (1-8).')
+                    print('Por favor, elige una posición válida (1-8 para las filas, a-h para las columnas).')
             except ValueError:
-                print('Entrada inválida. Por favor, ingresa un número.')
+                print('Entrada inválida. Por favor, ingresa un número para la fila.')
 
-# tablero
+# Uso del tablero
 tablero = TableroAjedrez()
 tablero.mostrar_tablero()
 
-# Jugador 1 
+# Jugador 1
 pieza_jugador1, fila_jugador1, columna_jugador1 = tablero.elegir_pieza(1)
 print(f'Jugador 1 eligió la pieza {pieza_jugador1} en la posición ({fila_jugador1+1}, {chr(columna_jugador1 + ord("a"))}).')
 
