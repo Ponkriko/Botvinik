@@ -24,13 +24,17 @@ class TableroAjedrez:
         self.tablero[fila_destino][columna_destino] = pieza
         self.tablero[fila_origen][columna_origen] = ' '
 
+    def notacion_a_coordenadas(self, movimiento):
+        columna_letra = movimiento[0]
+        fila = int(movimiento[1])
+        columna = ord(columna_letra) - ord('a')
+        return fila - 1, columna
+
     def elegir_pieza(self, jugador):
         while True:
             try:
-                fila = int(input(f'Jugador {jugador}, elige la fila (1-8): ')) - 1
-                columna_letra = input(f'Jugador {jugador}, elige la columna (a-h): ')
-                columna = ord(columna_letra) - ord('a')
-
+                movimiento = input(f'Jugador {jugador}, ingresa tu movimiento en notación de ajedrez (por ejemplo, e4): ')
+                fila, columna = self.notacion_a_coordenadas(movimiento)
                 if 0 <= fila < 8 and 0 <= columna < 8:
                     pieza = self.tablero[fila][columna]
                     if pieza != ' ':
@@ -52,7 +56,7 @@ print(f'Jugador 1 eligió la pieza {pieza_jugador1} en la posición ({fila_jugad
 
 # Mover la pieza del jugador 1 prueba 1
 fila_destino = int(input('Ingresa la fila de destino (1-8): ')) - 1
-columna_destino_letra = input(' Ingresa la columna de destino (a-h): ')
+columna_destino_letra = input('Ingresa la columna de destino (a-h): ')
 columna_destino = ord(columna_destino_letra) - ord('a')
 
 tablero.mover_pieza(pieza_jugador1, fila_jugador1, columna_jugador1, fila_destino, columna_destino)
@@ -64,7 +68,7 @@ print(f'Jugador 2 eligió la pieza {pieza_jugador2} en la posición ({fila_jugad
 
 # Mover la pieza del jugador 2
 fila_destino = int(input('Ingresa la fila de destino (1-8): ')) - 1
-columna_destino_letra = input('Ingresa la columna destino (a-h): ')
+columna_destino_letra = input('Ingresa la columna de destino (a-h): ')
 columna_destino = ord(columna_destino_letra) - ord('a')
 
 tablero.mover_pieza(pieza_jugador2, fila_jugador2, columna_jugador2, fila_destino, columna_destino)
