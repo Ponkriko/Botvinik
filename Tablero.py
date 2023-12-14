@@ -14,7 +14,7 @@ class TableroAjedrez:
     def mostrar_tablero(self):
         print("   a b c d e f g h")
         print(" +-----------------")
-        for fila_num, fila in enumerate(self.tablero[::-1], start=1):
+        for fila_num, fila in enumerate(self.tablero[::-1], start=8):
             print(f"{fila_num}| {' '.join(fila)} | {fila_num}")
         print(" +-----------------")
         print("   a b c d e f g h")
