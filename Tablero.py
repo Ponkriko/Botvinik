@@ -28,7 +28,7 @@ class TableroAjedrez:
         columna_letra = movimiento[0]
         fila = int(movimiento[1])
         columna = ord(columna_letra) - ord('a')
-        return fila - 1, columnaa2
+        return fila - 1, columna
 
     def elegir_pieza(self, jugador):
         while True:
